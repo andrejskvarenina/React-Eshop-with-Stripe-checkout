@@ -32,7 +32,7 @@ export const Cart = () => {
     cartItems.forEach((item) => {
       formData.append("cartItems[]", JSON.stringify(item));
     });
-    const response = await fetch("http://localhost:4242/create-checkout-session", {
+    const response = await fetch("https://react-eshop.onrender.com/create-checkout-session", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ cartItems }),

@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors())
 
 
-const YOUR_DOMAIN = 'http://localhost:4242';
+const YOUR_DOMAIN = 'https://react-eshop.onrender.com';
 
 app.post('/create-checkout-session', async (req, res) => {
   const cartItems = req.body.cartItems;
@@ -44,5 +44,5 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 
-
-app.listen(4242, () => console.log('Running on port 4242'));
+const port = process.env.PORT || 4242 
+app.listen(port, () => console.log('Running on ' + port));
