@@ -21,15 +21,16 @@
 }
 
 .logo {
-  width: 120px;
   height: 120px;
-  margin-right: 20px;
+  width: 120px;
 }
+
 
 .collections-links {
   display: flex;
   gap: 20px;
   flex: 1;
+  margin-left: 40px;
 }
 
 .cart-button {
@@ -41,4 +42,22 @@
   border: none;
   font-size: 30px;
   cursor: pointer;
+  position: relative;
+}
+
+.cart-items-count {
+  position: absolute;
+  top:  -8px;
+  right: -3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  background-color: rgb(216, 2, 2);
+  color: white;
+  font-size: 12px;
 }

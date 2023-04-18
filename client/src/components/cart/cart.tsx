@@ -96,7 +96,6 @@ export const Cart = () => {
 
         { cartItems.length !== 0 && (
           <div className="cart-footer">
-              <p>Free shipping on orders over 90 EUR.</p>
               <p><b>Subtotal: € {getSubtotal()}</b></p>
               <p>All orders include customs duties & taxes.</p>
               <p>Shipping calculated at checkout.</p>

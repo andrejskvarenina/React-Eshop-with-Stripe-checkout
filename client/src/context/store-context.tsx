@@ -10,6 +10,7 @@ type ContextType = {
   addItem: (item: Item) => void;
   removeItem: (item: Item) => void;
   getSubtotal: () => number;
+  getCartItemCount: () => number;
 };
 
 export const StoreContext = createContext<ContextType>({
@@ -17,6 +18,7 @@ export const StoreContext = createContext<ContextType>({
   addItem: () => {},
   removeItem: () => {},
   getSubtotal: () => 0,
+  getCartItemCount: () => 0,
 });
 
 export const StoreContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
@@ -68,10 +70,14 @@ export const StoreContextProvider = ({ children }: React.PropsWithChildren<{}>) 
   
     return Number(subtotal.toFixed(2));
   };
+
+  const getCartItemCount = (): number => {
+    return cartItems.reduce((count, item) => count + item.quantity, 0);
+  }
   
   
 
-  const contextValue = { cartItems, addItem, removeItem, getSubtotal};
+  const contextValue = { cartItems, addItem, removeItem, getSubtotal, getCartItemCount};
 
   return (
     <StoreContext.Provider value={contextValue}>
