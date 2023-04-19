@@ -33,7 +33,6 @@ app.post('/create-checkout-session', async (req, res) => {
   });
 
   const session = await stripe.checkout.sessions.create({
-    line_items: lineItems,
     shipping_address_collection: {
       allowed_countries: ["SK", "CZ"],
     },
@@ -41,7 +40,7 @@ app.post('/create-checkout-session', async (req, res) => {
       {
         shipping_rate_data: {
           type: 'fixed_amount',
-          fixed_amount: {amount: 0, currency: 'usd'},
+          fixed_amount: {amount: 0, currency: 'eur'},
           display_name: 'Free shipping',
           delivery_estimate: {
             minimum: {unit: 'business_day', value: 5},
@@ -52,7 +51,7 @@ app.post('/create-checkout-session', async (req, res) => {
       {
         shipping_rate_data: {
           type: 'fixed_amount',
-          fixed_amount: {amount: 1500, currency: 'usd'},
+          fixed_amount: {amount: 1500, currency: 'eur'},
           display_name: 'Next day air',
           delivery_estimate: {
             minimum: {unit: 'business_day', value: 1},
@@ -61,6 +60,10 @@ app.post('/create-checkout-session', async (req, res) => {
         },
       },
     ],
+    phone_number_collection: {
+      enabled: true,
+    },
+    line_items: lineItems,
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}/success.html`,
     cancel_url: `${YOUR_DOMAIN}/cancel.html`,
