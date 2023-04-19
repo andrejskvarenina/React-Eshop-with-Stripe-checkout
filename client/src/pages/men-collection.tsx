@@ -1,3 +1,4 @@
+import { Spinner } from '../components/spinner/spinner'
 import { StorePage } from '../components/store-page/store-page'
 import { useGetProducts } from '../hooks/useGetProducts'
 
@@ -6,7 +7,7 @@ export const MenCollection = () => {
   const { menData, isMenDataLoading, isMenDataError } = useGetProducts()
 
   if (isMenDataLoading) {
-    return <h1>Loading...</h1>
+    return <Spinner />
   }
 
   if(isMenDataError || !menData) {
