@@ -6,6 +6,7 @@ import './product-page.css';
 import { StoreContext } from '../../context/store-context';
 import { SnackbarContext } from '../../context/snackbar-context';
 import { useContext } from 'react';
+import { Spinner } from '../../components/spinner/spinner';
 
 export const ProductPage = () => {
 
@@ -29,7 +30,7 @@ export const ProductPage = () => {
   return (
     <div className='product-page'>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <Spinner />
       ) : (
         <div className='product'>
           <div className='product-first-row'>

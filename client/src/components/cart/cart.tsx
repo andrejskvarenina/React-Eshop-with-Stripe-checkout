@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
 import './cart.css';
 import { GrClose } from 'react-icons/gr';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -9,10 +9,12 @@ import { StoreContext } from '../../context/store-context';
 import { SliderContext } from '../../context/slider-context';
 
 import { loadStripe } from '@stripe/stripe-js';
+import { Spinner } from '../spinner/spinner';
 
 
 export const Cart = () => {
-  
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
+
   const { cartItems, addItem, removeItem, getSubtotal } = useContext(StoreContext)
   const { showCart, handleCartToggle } = useContext(SliderContext)
   
@@ -27,6 +29,10 @@ export const Cart = () => {
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    handleCartToggle()
+    setIsCheckoutLoading(true);
+    document.body.classList.add('checkout-loading');
+
     const stripe = await loadStripe('pk_test_51MvqTkAj6qkmHR3QLVx1SbdY8RUBk2eFfgPoQhr633ey9wEwOX7374u6r2naf2iUagPpUqOcoxL6O1mSQHFQgHx500Hi7NJ377');
     const formData = new URLSearchParams();
     cartItems.forEach((item) => {
@@ -41,6 +47,9 @@ export const Cart = () => {
     await stripe?.redirectToCheckout({
       sessionId: session.id,
     });
+
+    setIsCheckoutLoading(false);
+    document.body.classList.remove('checkout-loading');
   };
   
   useEffect(() => {
@@ -111,6 +120,7 @@ export const Cart = () => {
           )
         }
       </div>
+      {isCheckoutLoading && <Spinner />}
     </div>  
     
   );
