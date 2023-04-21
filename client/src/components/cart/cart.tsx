@@ -51,6 +51,20 @@ export const Cart = () => {
     setIsCheckoutLoading(false);
     document.body.classList.remove('checkout-loading');
   };
+
+  useEffect(() => {
+    const handlePopstate = () => {
+      setIsCheckoutLoading(false);
+      document.body.classList.remove('checkout-loading');
+    };
+  
+    window.addEventListener('popstate', handlePopstate);
+  
+    return () => {
+      window.removeEventListener('popstate', handlePopstate);
+    };
+  }, []);
+  
   
   useEffect(() => {
     if (showCart) {
