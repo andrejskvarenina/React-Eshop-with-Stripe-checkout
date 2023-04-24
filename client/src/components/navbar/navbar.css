@@ -41,8 +41,9 @@
   border: none;
   font-size: 30px;
   cursor: pointer;
-  position: absolute;
+  position: relative;
   right: 25px;
+  color: black;
 }
 
 .cart-items-count {
@@ -66,6 +67,10 @@
   .logo {
     height: 90px;
     width: 90px;
+  }
+
+  .cart-button {
+    right: 15px;
   }
 
   .navbar a {
@@ -95,7 +100,6 @@
 
   .cart-button {
     font-size: 23px;
-    right: 15px;
   }
 
   .cart-items-count {
