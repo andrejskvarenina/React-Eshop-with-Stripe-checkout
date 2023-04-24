@@ -1,7 +1,7 @@
 .cart {
   position: fixed;
   top: 0;
-  right: -375px;
+  right: -385px;
   height: calc(100vh - 100px);
   width: 335px;
   background-color: white;
@@ -135,6 +135,10 @@
   margin-top: 50px;
 }
 
+.subtotal {
+  font-weight: 700;
+}
+
 .cart-footer button {
   width: 100%;
   margin-top: 50px;
@@ -168,5 +172,39 @@
 
 .disable-pointer-events {
   pointer-events: none;
+}
+
+@media (max-width: 500px) {
+  .cart {
+    transition: none;
+  }
+
+  .cart.active {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .cart-footer {
+    align-items: center;
+  }
+}
+
+@media (max-width: 300px) {
+  .cart-item {
+    font-size: 14px;
+  }
+
+  .cart-footer {
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .subtotal {
+    font-size: 13px;
+  }
 }
 

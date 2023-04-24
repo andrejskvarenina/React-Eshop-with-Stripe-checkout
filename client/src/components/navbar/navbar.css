@@ -34,7 +34,6 @@
 }
 
 .cart-button {
-  margin-right: 30px;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -42,7 +41,8 @@
   border: none;
   font-size: 30px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  right: 25px;
 }
 
 .cart-items-count {
@@ -60,4 +60,47 @@
   background-color: rgb(216, 2, 2);
   color: white;
   font-size: 12px;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    height: 90px;
+    width: 90px;
+  }
+
+  .navbar a {
+    font-size: 20px;
+  }
+
+  .collections-links {
+    gap: 10px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 300px) {
+  .logo {
+    height: 70px;
+    width: 70px;
+  }
+
+  .collections-links {
+    gap: 8px;
+    margin-left: 15px;
+  }
+
+  .navbar a {
+    font-size: 15px;
+  }
+
+  .cart-button {
+    font-size: 23px;
+    right: 15px;
+  }
+
+  .cart-items-count {
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+  }
 }

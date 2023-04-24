@@ -105,7 +105,7 @@ export const Cart = () => {
 
         { cartItems.length !== 0 && (
           <div className="cart-footer">
-              <p><b>Subtotal: € {getSubtotal()}</b></p>
+              <p className='subtotal'>Subtotal: € {getSubtotal()}</p>
               <p>All orders include customs duties & taxes.</p>
               <p>Shipping calculated at checkout.</p>
               <div className='checkout-button-wrap'>

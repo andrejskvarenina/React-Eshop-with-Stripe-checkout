@@ -1,10 +1,6 @@
 .home-page {
-  padding-top: 70px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  padding-top: 100px;
+  padding-bottom: 30px;
   display: flex;
   flex: 1;
   justify-content: center;
@@ -46,5 +42,34 @@
 
 .home-page-img-div:hover .text-overlay {
   opacity: 1;
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+  .home-page {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 950px) {
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .home-page-img-div {
+    width: 300px;
+  height: 400px;
+  }
+}
+
+@media (max-width: 300px) {
+  .home-page-img-div {
+    width: 220px;
+    height: 320px;
+  }
 }
 

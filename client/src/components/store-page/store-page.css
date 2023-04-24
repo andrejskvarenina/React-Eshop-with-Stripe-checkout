@@ -80,3 +80,20 @@
   text-align: center;
   margin: 0;
 }
+
+@media (max-width: 700px) {
+  .store-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 300px) {
+  .item {
+    width: 230px;
+  }
+
+  .quick-add-to-cart-button {
+    right: 10px;
+    bottom: 10px;
+  }
+}
